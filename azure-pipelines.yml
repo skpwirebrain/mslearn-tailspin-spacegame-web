@@ -22,9 +22,9 @@ steps:
     version: '6.x'
 
 - task: Npm@1
-    dispalyName: 'Run Npm install'
-    inputs:
-      verbose: false
+  dispalyName: 'Run Npm install'
+  inputs:
+    verbose: false
 
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
@@ -35,7 +35,7 @@ steps:
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
-    
+
 - task: DotNetCoreCLI@2
   displayName: 'Resotre Project Dependencies'
   inputs:
